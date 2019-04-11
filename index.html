@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Zerodha Python Test Task</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--===============================================================================================-->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					
+					<div class="heading">
+							<h1><center>Zerodha Task : BSE Bhavcopy Data</center></h1>
+					</div>
+				<div class="container">
+							<div class="row justify-content-md-center top-buffer">
+							  <form class="form-inline" method="get" action = "search_stock_by_name">
+								  
+								  <div class="form-row">
+								  <div class="form-group col-md-10">
+									<input autofocus type="text" class="form-control form-control-lg" name="search_query" id="search_query" placeholder="Search" value = "{{ search_query }}" autocomplete = "on" maxlength = "52"/>
+								</div>
+								  <div class="form-group col-md-2">
+									<button type="submit" class="btn btn-primary" style="background-color:#1FB58F;">Search</button>
+								  </div>
+								</div>
+							  </form>
+					  </div>
+					</div>
+
+				<div class="table100">
+					<div class="heading">
+					<h2>Top 10 Entries</h2>
+					</div>
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Code</th>
+								<th class="column2">Stock</th>
+								<th class="column3">Open</th>
+								<th class="column4">High</th>
+								<th class="column5">Low</th>
+								<th class="column6">Close</th>
+							</tr>
+						</thead>
+						<tbody>
+								{% for stock in stocks %}
+								<tr>
+									<td class="column1">{{ stock.Code }}</td>
+									<td class="column2">{{ stock.Name }}</td>
+									<td class="column3">{{ stock.Open }}</td>
+									<td class="column4">{{ stock.High }}</td>
+									<td class="column5">{{ stock.Low }}</td>
+									<td class="column6">{{ stock.Close }}</td>
+								</tr>
+								{% endfor %}
+								<tr>
+										<td class="column1"></td>
+										<td class="column2"></td>
+										<td class="column3"></td>
+										<td class="column4"></td>
+										<td class="column5"></td>
+										<td class="column6">Last Updated on : {{last_update}}</td>
+								</tr>
+								
+						</tbody>
+					</table>
+					<p>*Data is sourced from BSE Bhavcopy and is for representational purpose only. I am not responsible for any event occuring due to the use of this webpage</p>
+					<p>Made by <a href="https://github.com/theimperium20">theimperium20</a> for <a href="https://zerodha.com/">Zerodha</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	
+
+<!--===============================================================================================-->	
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+	
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+	
+
+</body>
+</html>
