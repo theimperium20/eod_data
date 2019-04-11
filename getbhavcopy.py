@@ -15,9 +15,9 @@ def fetchBhavCopy():
         #Get and format today's date to be used in the bhavcopy download url
         t_date = datetime.today().strftime('%d%m%y')
     
+       
+    csvname = os.getcwd()+'/EQ'+t_date+'.CSV'
     #Check if csv file already exists
-    csv = os.getcwd()+'/EQ'+t_date+'.csv'
-    csvname = 'EQ'+t_date+'.csv'
     try:
         open(csvname)
         close(csvname)
