@@ -1,0 +1,4 @@
+cherrypy
+Jinja2
+redis
+requests
