@@ -9,12 +9,16 @@ env = Environment(loader=FileSystemLoader(os.getcwd()))
 class task(object):
     @cherrypy.expose
     def index(self):
-        #Get Bhavcopy CSV
-        csvname,t_date = getbhavcopy.fetchBhavCopy()
-        #Parse CSV and feed to redis
-        db.parse(csvname,t_date)
-        #Get top 10 entries from redis
-        stocks = db.top10stockentries()
+        try:
+            #Get Bhavcopy CSV
+            csvname,t_date = getbhavcopy.fetchBhavCopy()
+            #Parse CSV and feed to redis
+            db.parse(csvname,t_date)
+            #Get top 10 entries from redis
+            stocks = db.top10stockentries()
+        except:
+            #Get top 10 entries from redis
+            stocks = db.top10stockentries()
         #Get last updated time
         last_update = db.last_updated()
         last_update = '-'.join(a+b for a,b in zip(last_update[::2], last_update[1::2]))
