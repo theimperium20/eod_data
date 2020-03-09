@@ -1,5 +1,4 @@
-# zerodha-task
-This repo contains the source code for test task given by the zerodha's HR team. 
+# What does the code do?
 This web app downloads daily bhavcopy from BSE (https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx) parses the CSV and loads the values
 into Redis. On the landing page, it renders the top 10 stock entries in the Redis in a nice table. It also has a search function to search stocks
 from Redis using name. 
